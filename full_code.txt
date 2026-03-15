@@ -1,0 +1,1190 @@
+// FILE: .gitignore
+// --------------------------------------------------------------------------
+
+# compiled output
+/dist
+/node_modules
+/build
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+
+# Tests
+/coverage
+/.nyc_output
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# temp directory
+.temp
+.tmp
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+
+// END OF FILE: .gitignore
+// ==========================================================================
+
+// FILE: .prettierrc
+// --------------------------------------------------------------------------
+
+{
+  "singleQuote": true,
+  "trailingComma": "all"
+}
+
+
+// END OF FILE: .prettierrc
+// ==========================================================================
+
+// FILE: Dockerfile
+// --------------------------------------------------------------------------
+
+FROM node:20-slim
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+ENV PORT=8080
+EXPOSE 8080
+CMD ["npm", "run", "start:prod"]
+
+// END OF FILE: Dockerfile
+// ==========================================================================
+
+// FILE: README.md
+// --------------------------------------------------------------------------
+
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+</p>
+
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
+
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+
+## Description
+
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+
+## Project setup
+
+```bash
+$ npm install
+```
+
+## Compile and run the project
+
+```bash
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
+```
+
+## Run tests
+
+```bash
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
+```
+
+## Deployment
+
+When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+
+If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+
+```bash
+$ npm install -g @nestjs/mau
+$ mau deploy
+```
+
+With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+
+## Resources
+
+Check out a few resources that may come in handy when working with NestJS:
+
+- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
+- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
+- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
+- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
+- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
+- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
+- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
+- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+
+## Support
+
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+
+## Stay in touch
+
+- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
+
+## License
+
+Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+
+// END OF FILE: README.md
+// ==========================================================================
+
+// FILE: deploy.sh
+// --------------------------------------------------------------------------
+
+#!/bin/bash
+
+# 1. SET THESE VALUES
+PROJECT_ID="gen-lang-client-0125303344"
+REGION="us-central1"
+SERVICE_NAME="glyph-server"
+
+# 2. YOUR ENV VARS
+SUPABASE_URL="https://eifeyuvbxmsjjtbtbyuk.supabase.co"
+SUPABASE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVpZmV5dXZieG1zamp0YnRieXVrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY3ODc4NjY0NywiZXhwIjoxOTk0MzYyNjQ3fQ.LnuFgfty7CPOwWWor9c5E4oiNNIF_fTAh7KROU3_wHA" # Keep your full key here
+GEMINI_KEY="AIzaSyBdTqSjLf95GK_99UQjzk2PnfrZxUk9ZgA." # Keep your full key here
+
+echo "Step 1: Enabling Google APIs..."
+gcloud services enable run.googleapis.com cloudbuild.googleapis.com
+
+echo "Step 2: Deploying to Cloud Run..."
+gcloud run deploy $SERVICE_NAME \
+  --source . \
+  --region $REGION \
+  --project $PROJECT_ID \
+  --allow-unauthenticated \
+  --set-env-vars="SUPABASE_URL=$SUPABASE_URL,SUPABASE_SERVICE_ROLE_KEY=$SUPABASE_KEY,GEMINI_API_KEY=$GEMINI_KEY"
+
+// END OF FILE: deploy.sh
+// ==========================================================================
+
+// FILE: eslint.config.mjs
+// --------------------------------------------------------------------------
+
+// @ts-check
+import eslint from '@eslint/js';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
+
+export default tseslint.config(
+  {
+    ignores: ['eslint.config.mjs'],
+  },
+  eslint.configs.recommended,
+  ...tseslint.configs.recommendedTypeChecked,
+  eslintPluginPrettierRecommended,
+  {
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.jest,
+      },
+      sourceType: 'commonjs',
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
+  {
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-floating-promises': 'warn',
+      '@typescript-eslint/no-unsafe-argument': 'warn'
+    },
+  },
+);
+
+
+// END OF FILE: eslint.config.mjs
+// ==========================================================================
+
+// FILE: nest-cli.json
+// --------------------------------------------------------------------------
+
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "deleteOutDir": true
+  }
+}
+
+
+// END OF FILE: nest-cli.json
+// ==========================================================================
+
+// FILE: package.json
+// --------------------------------------------------------------------------
+
+{
+  "name": "glyph-server",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@google/genai": "^1.44.0",
+    "@nestjs/common": "^11.0.1",
+    "@nestjs/config": "^4.0.3",
+    "@nestjs/core": "^11.0.1",
+    "@nestjs/platform-express": "^11.0.1",
+    "@supabase/supabase-js": "^2.98.0",
+    "pdf-parse": "^2.4.5",
+    "pdfjs-dist": "^3.11.174",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.18.0",
+    "@nestjs/cli": "^11.0.0",
+    "@nestjs/schematics": "^11.0.0",
+    "@nestjs/testing": "^11.0.1",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^30.0.0",
+    "@types/multer": "^2.1.0",
+    "@types/node": "^22.10.7",
+    "@types/pdf-parse": "^1.1.5",
+    "@types/supertest": "^6.0.2",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.2",
+    "globals": "^16.0.0",
+    "jest": "^30.0.0",
+    "prettier": "^3.4.2",
+    "source-map-support": "^0.5.21",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
+
+
+// END OF FILE: package.json
+// ==========================================================================
+
+// FILE: run.js
+// --------------------------------------------------------------------------
+
+const fs = require('fs');
+const path = require('path');
+
+// --- Configuration ---
+
+// The name of the output file.
+const outputFile = 'full_code.txt';
+
+// The root directory of your project. '.' means the current directory.
+const rootDir = '.';
+
+// List of directories to completely ignore.
+const ignoreDirs = [
+  'node_modules',
+  '.next',
+  '.git',
+  '.vscode',
+  '.swc',
+  'dist',
+  'build',
+  'temp'
+  // Add any other directories you want to ignore
+];
+
+// List of specific files or file extensions to ignore.
+const ignoreFiles = [
+  outputFile,          // Don't include the output file itself
+  'package-lock.json',
+  'yarn.lock',
+  'pnpm-lock.yaml',
+  'tsconfig.tsbuildinfo',
+  '.env',
+  '.env.local',
+  // Add any other specific files you want to ignore
+];
+
+const ignoreExtensions = [
+    '.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico', // Images
+    '.woff', '.woff2', '.ttf', '.eot', // Fonts
+    '.mp4', '.webm', // Videos
+    '.zip', '.gz', // Archives
+];
+
+
+// --- Script Logic ---
+
+let finalContent = '';
+
+function walkDir(currentPath) {
+  const files = fs.readdirSync(currentPath);
+
+  for (const file of files) {
+    const filePath = path.join(currentPath, file);
+    const stat = fs.statSync(filePath);
+
+    if (stat.isDirectory()) {
+      // If it's a directory, check if it's in the ignore list.
+      if (!ignoreDirs.includes(file)) {
+        // If not ignored, recurse into it.
+        walkDir(filePath);
+      }
+    } else {
+      // It's a file. Check if it or its extension is in the ignore lists.
+      const fileExtension = path.extname(file).toLowerCase();
+      if (!ignoreFiles.includes(file) && !ignoreExtensions.includes(fileExtension)) {
+        try {
+          const content = fs.readFileSync(filePath, 'utf8');
+          
+          finalContent += `// FILE: ${filePath}\n`;
+          finalContent += `// --------------------------------------------------------------------------\n\n`;
+          finalContent += content;
+          finalContent += `\n\n// END OF FILE: ${filePath}\n`;
+          finalContent += `// ==========================================================================\n\n`;
+
+        } catch (error) {
+            // This can happen for binary files that aren't caught by the extension filter
+            console.log(`Could not read file (likely binary): ${filePath}`);
+        }
+      }
+    }
+  }
+}
+
+try {
+  console.log('Starting to bundle project files...');
+  // Start the process from the root directory.
+  walkDir(rootDir);
+
+  // Write the aggregated content to the output file.
+  fs.writeFileSync(outputFile, finalContent);
+
+  console.log(`✅ Successfully created ${outputFile}`);
+  console.log('Remember to review the file for any sensitive information before sharing.');
+
+} catch (error) {
+  console.error('❌ An error occurred:', error);
+}
+
+// END OF FILE: run.js
+// ==========================================================================
+
+// FILE: src/app.controller.spec.ts
+// --------------------------------------------------------------------------
+
+import { Test, TestingModule } from '@nestjs/testing';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+
+describe('AppController', () => {
+  let appController: AppController;
+
+  beforeEach(async () => {
+    const app: TestingModule = await Test.createTestingModule({
+      controllers: [AppController],
+      providers: [AppService],
+    }).compile();
+
+    appController = app.get<AppController>(AppController);
+  });
+
+  describe('root', () => {
+    it('should return "Hello World!"', () => {
+      expect(appController.getHello()).toBe('Hello World!');
+    });
+  });
+});
+
+
+// END OF FILE: src/app.controller.spec.ts
+// ==========================================================================
+
+// FILE: src/app.controller.ts
+// --------------------------------------------------------------------------
+
+import { Controller, Get } from '@nestjs/common';
+import { AppService } from './app.service';
+
+@Controller()
+export class AppController {
+  constructor(private readonly appService: AppService) {}
+
+  @Get()
+  getHello(): string {
+    return this.appService.getHello();
+  }
+}
+
+
+// END OF FILE: src/app.controller.ts
+// ==========================================================================
+
+// FILE: src/app.module.ts
+// --------------------------------------------------------------------------
+
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { DocumentsModule } from './documents/documents.module';
+
+@Module({
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    DocumentsModule,
+  ],
+})
+export class AppModule {}
+
+
+// END OF FILE: src/app.module.ts
+// ==========================================================================
+
+// FILE: src/app.service.ts
+// --------------------------------------------------------------------------
+
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class AppService {
+  getHello(): string {
+    return 'Hello World!';
+  }
+}
+
+
+// END OF FILE: src/app.service.ts
+// ==========================================================================
+
+// FILE: src/documents/documents.controller.ts
+// --------------------------------------------------------------------------
+
+import { Controller, Post, Get, Body, UploadedFile, UseInterceptors, Query } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { DocumentsService } from './documents.service';
+import { SearchService } from './search.service';
+
+@Controller('documents')
+export class DocumentsController {
+  constructor(
+    private readonly documentsService: DocumentsService,
+    private readonly searchService: SearchService,
+  ) {}
+
+  @Post('upload')
+  @UseInterceptors(FileInterceptor('file'))
+  async uploadFile(
+    @UploadedFile() file: Express.Multer.File,
+    @Body('userId') userId: string,
+  ) {
+    return this.documentsService.handleUpload(file, userId);
+  }
+
+  @Get('list')
+  async listDocs(@Query('userId') userId: string) {
+    return this.documentsService.getUserDocuments(userId);
+  }
+
+  @Post('query')
+  async queryDocs(
+    @Body() body: { query: string; userId: string; documentId?: string }
+  ) {
+    // documentId is now passed through — strict per-document search
+    return this.searchService.findRelevantSection(body.query, body.userId, body.documentId);
+  }
+
+  @Get('health')
+health() {
+  return { status: 'ok', timestamp: new Date().toISOString() };
+}
+}
+
+// END OF FILE: src/documents/documents.controller.ts
+// ==========================================================================
+
+// FILE: src/documents/documents.module.ts
+// --------------------------------------------------------------------------
+
+import { Module } from '@nestjs/common';
+import { DocumentsController } from './documents.controller';
+import { DocumentsService } from './documents.service';
+import { IngestionService } from './ingestion.service';
+import { SearchService } from './search.service';
+
+@Module({
+  controllers: [DocumentsController],
+  providers: [DocumentsService, IngestionService, SearchService],
+})
+export class DocumentsModule {}
+
+// END OF FILE: src/documents/documents.module.ts
+// ==========================================================================
+
+// FILE: src/documents/documents.service.ts
+// --------------------------------------------------------------------------
+
+import { Injectable, Logger } from '@nestjs/common';
+import { createClient } from '@supabase/supabase-js';
+import { IngestionService } from './ingestion.service';
+
+@Injectable()
+export class DocumentsService {
+  private readonly logger = new Logger(DocumentsService.name);
+  private supabase = createClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+  );
+
+  constructor(private readonly ingestionService: IngestionService) {}
+
+  // ── Upload PDF → Supabase Storage → DB record → background ingestion ───────
+  async handleUpload(file: Express.Multer.File, userId: string) {
+    this.logger.log(`📤 Uploading "${file.originalname}" for user ${userId}`);
+
+    // 1. Upload file to Supabase Storage
+    const fileName = `${userId}/${Date.now()}_${file.originalname.replace(/\s+/g, '_')}`;
+
+    const { data: storageData, error: storageError } = await this.supabase.storage
+      .from('documents')
+      .upload(fileName, file.buffer, {
+        contentType: 'application/pdf',
+        upsert: false,
+      });
+
+    if (storageError) {
+      this.logger.error(`Storage upload failed: ${storageError.message}`);
+      throw new Error(`Storage upload failed: ${storageError.message}`);
+    }
+
+    // 2. Get public URL
+    const { data: { publicUrl } } = this.supabase.storage
+      .from('documents')
+      .getPublicUrl(fileName);
+
+    // 3. Insert document record into DB
+    const { data: doc, error: dbError } = await this.supabase
+      .from('documents')
+      .insert({
+        user_id: userId,
+        name: file.originalname,
+        file_url: publicUrl,
+      })
+      .select()
+      .single();
+
+    if (dbError || !doc) {
+      this.logger.error(`DB insert failed: ${dbError?.message}`);
+      throw new Error(`DB insert failed: ${dbError?.message}`);
+    }
+
+    this.logger.log(`✅ Document record created: ${doc.id}`);
+
+    // 4. Kick off sentence-level ingestion in the background
+    // ─── FIXED: was processPdf(), now correctly calls ingestDocument() ────────
+    this.ingestionService.ingestDocument(doc.id, publicUrl).catch(err => {
+      this.logger.error(`Background ingestion failed for ${doc.id}: ${err.message}`);
+    });
+
+    return doc;
+  }
+
+  // ── List all documents for a user ──────────────────────────────────────────
+  async getUserDocuments(userId: string) {
+    const { data, error } = await this.supabase
+      .from('documents')
+      .select('id, name, file_url, created_at')
+      .eq('user_id', userId)
+      .order('created_at', { ascending: false });
+
+    if (error) throw new Error(error.message);
+    return data ?? [];
+  }
+}
+
+// END OF FILE: src/documents/documents.service.ts
+// ==========================================================================
+
+// FILE: src/documents/ingestion.service.ts
+// --------------------------------------------------------------------------
+
+import { Injectable, Logger } from '@nestjs/common';
+import { createClient } from '@supabase/supabase-js';
+
+// ─── Types ───────────────────────────────────────────────────────────────────
+interface TextItem {
+  str: string;
+  transform: number[];  // [scaleX, skewX, skewY, scaleY, x, y]
+  width: number;
+  height: number;
+}
+
+interface Word {
+  str: string;
+  x: number;
+  y: number;      // top-left origin (converted from PDF bottom-left)
+  width: number;
+  height: number;
+}
+
+interface SentenceChunk {
+  text: string;
+  pageNumber: number;
+  boundingBox: [number, number, number, number]; // [x, y, width, height]
+}
+
+// ─── Load pdfjs with canvas mock (must happen before any require of pdfjs) ──
+// pdfjs-dist legacy build optionally requires 'canvas' — we stub it out
+// so it doesn't crash in a Node/NestJS environment without a display.
+function loadPdfjs(): any {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const Module = require('module') as any;
+  const origLoad = Module._load;
+
+  // Intercept require('canvas') and return an empty stub instead of crashing
+  Module._load = function (id: string, ...args: any[]) {
+    if (id === 'canvas') {
+      return { createCanvas: () => ({}), loadImage: async () => ({}) };
+    }
+    return origLoad.call(this, id, ...args);
+  };
+
+  let pdfjsLib: any;
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    pdfjsLib = require('pdfjs-dist/legacy/build/pdf.js');
+  } finally {
+    Module._load = origLoad; // always restore
+  }
+
+  // Unwrap default export if needed (some bundler configs wrap it)
+  if (typeof pdfjsLib.getDocument !== 'function' && pdfjsLib.default) {
+    pdfjsLib = pdfjsLib.default;
+  }
+
+  if (typeof pdfjsLib.getDocument !== 'function') {
+    throw new Error(
+      `pdfjs getDocument not found. Available keys: ${Object.keys(pdfjsLib).join(', ')}`
+    );
+  }
+
+  return pdfjsLib;
+}
+
+// Load once at module init time — safe because the canvas mock is applied
+// before the require and removed immediately after.
+const pdfjsLib = loadPdfjs();
+
+// ─── Service ─────────────────────────────────────────────────────────────────
+@Injectable()
+export class IngestionService {
+  private readonly logger = new Logger(IngestionService.name);
+  private supabase = createClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+  );
+
+  async ingestDocument(documentId: string, fileUrl: string): Promise<void> {
+    this.logger.log(`🔍 Starting sentence-level ingestion for doc: ${documentId}`);
+
+    try {
+      // 1. Fetch PDF bytes from Supabase Storage URL
+      const response = await fetch(fileUrl);
+      if (!response.ok) throw new Error(`Failed to fetch PDF: ${response.status}`);
+      const arrayBuffer = await response.arrayBuffer();
+
+      const pdf = await pdfjsLib.getDocument({
+        data: new Uint8Array(arrayBuffer),
+        disableWorker: true,
+        useWorkerFetch: false,
+        isEvalSupported: false,
+        useSystemFonts: true,
+      }).promise;
+
+      this.logger.log(`📄 PDF loaded: ${pdf.numPages} pages`);
+
+      // 2. Extract sentence-level chunks with tight bounding boxes
+      const allChunks: SentenceChunk[] = [];
+
+      for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+        const page = await pdf.getPage(pageNum);
+        const viewport = page.getViewport({ scale: 1.0 });
+        const pageHeight = viewport.height;
+
+        const textContent = await page.getTextContent();
+        const items = textContent.items as TextItem[];
+
+        const words: Word[] = items
+          .filter(item => item.str && item.str.trim().length > 0)
+          .map(item => ({
+            str: item.str,
+            x: item.transform[4],
+            // Convert PDF bottom-left Y origin → top-left origin
+            y: pageHeight - item.transform[5] - (item.height || 10),
+            width: Math.abs(item.width),
+            height: Math.abs(item.height) || 10,
+          }));
+
+        if (words.length === 0) continue;
+
+        const lines = groupWordsIntoLines(words, 4);
+        const sentences = groupLinesIntoSentences(lines, pageNum);
+        allChunks.push(...sentences);
+
+        this.logger.log(`  Page ${pageNum}: ${words.length} words → ${sentences.length} sentences`);
+      }
+
+      this.logger.log(`✅ Extracted ${allChunks.length} total sentence chunks`);
+
+      // 3. Delete old chunks for this document
+      const { error: deleteError } = await this.supabase
+        .from('document_chunks')
+        .delete()
+        .eq('document_id', documentId);
+
+      if (deleteError) {
+        this.logger.warn(`Could not delete old chunks: ${deleteError.message}`);
+      }
+
+      // 4. Embed and store in batches of 5 (rate limit friendly)
+      const { GoogleGenAI } = await import('@google/genai');
+      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! });
+
+      const BATCH_SIZE = 5;
+      let stored = 0;
+
+      for (let i = 0; i < allChunks.length; i += BATCH_SIZE) {
+        const batch = allChunks.slice(i, i + BATCH_SIZE);
+
+        await Promise.all(
+          batch.map(async (chunk) => {
+            try {
+              const embResult = await ai.models.embedContent({
+                model: 'gemini-embedding-001',
+                contents: chunk.text,
+              });
+
+              const values = embResult.embeddings?.[0]?.values;
+              if (!values) {
+                this.logger.warn(`No embedding returned for: "${chunk.text.substring(0, 40)}"`);
+                return;
+              }
+
+              const { error } = await this.supabase.from('document_chunks').insert({
+                document_id: documentId,
+                content: chunk.text,
+                embedding: values,
+                page_number: chunk.pageNumber,
+                bounding_box: chunk.boundingBox,
+              });
+
+              if (error) this.logger.warn(`Insert error: ${error.message}`);
+              else stored++;
+            } catch (e: any) {
+              this.logger.warn(`Chunk embed/insert failed: ${e.message}`);
+            }
+          })
+        );
+
+        this.logger.log(`  💾 ${Math.min(i + BATCH_SIZE, allChunks.length)}/${allChunks.length} chunks stored...`);
+
+        // Brief pause between batches to respect embedding API rate limits
+        if (i + BATCH_SIZE < allChunks.length) {
+          await new Promise(r => setTimeout(r, 300));
+        }
+      }
+
+      this.logger.log(`✅ Ingestion complete: ${stored}/${allChunks.length} sentence chunks stored for doc ${documentId}`);
+
+    } catch (err: any) {
+      this.logger.error(`💥 Ingestion failed: ${err.message}`, err.stack);
+      throw err;
+    }
+  }
+}
+
+// ─── Text extraction helpers ─────────────────────────────────────────────────
+
+/**
+ * Group words into lines based on Y proximity.
+ * Words within `tolerance` PDF points vertically are considered the same line.
+ */
+function groupWordsIntoLines(words: Word[], tolerance: number): Word[][] {
+  const sorted = [...words].sort((a, b) =>
+    Math.abs(a.y - b.y) <= tolerance ? a.x - b.x : a.y - b.y
+  );
+
+  const lines: Word[][] = [];
+  let currentLine: Word[] = [sorted[0]];
+  let currentY = sorted[0].y;
+
+  for (let i = 1; i < sorted.length; i++) {
+    const word = sorted[i];
+    if (Math.abs(word.y - currentY) <= tolerance) {
+      currentLine.push(word);
+      // Rolling average Y keeps the line anchor stable across wide lines
+      currentY = currentLine.reduce((s, w) => s + w.y, 0) / currentLine.length;
+    } else {
+      lines.push(currentLine);
+      currentLine = [word];
+      currentY = word.y;
+    }
+  }
+  if (currentLine.length > 0) lines.push(currentLine);
+
+  return lines;
+}
+
+/**
+ * Merge lines into sentence-level chunks.
+ * A new sentence starts after . ! ? or when accumulated text exceeds MAX_CHARS.
+ * Short fragments (headers, labels) below MIN_CHARS are skipped.
+ */
+function groupLinesIntoSentences(lines: Word[][], pageNumber: number): SentenceChunk[] {
+  const chunks: SentenceChunk[] = [];
+  let currentWords: Word[] = [];
+  let currentText = '';
+
+  const SENTENCE_END = /[.!?]["']?\s*$/;
+  const MIN_CHARS = 20;
+  const MAX_CHARS = 300;
+
+  const flush = () => {
+    const text = currentText.trim();
+    if (text.length >= MIN_CHARS && currentWords.length > 0) {
+      chunks.push({
+        text,
+        pageNumber,
+        boundingBox: computeTightBBox(currentWords),
+      });
+    }
+    currentWords = [];
+    currentText = '';
+  };
+
+  for (const line of lines) {
+    const lineText = line.map(w => w.str).join(' ').trim();
+    if (!lineText) continue;
+
+    currentWords.push(...line);
+    currentText += (currentText ? ' ' : '') + lineText;
+
+    if (SENTENCE_END.test(lineText) || currentText.length >= MAX_CHARS) {
+      flush();
+    }
+  }
+  flush(); // flush any trailing text at page end
+
+  return chunks;
+}
+
+/**
+ * Compute the tightest possible bounding box from a set of words.
+ * Returns [x, y, width, height] in PDF points, top-left origin.
+ */
+function computeTightBBox(words: Word[]): [number, number, number, number] {
+  const minX = Math.min(...words.map(w => w.x));
+  const minY = Math.min(...words.map(w => w.y));
+  const maxX = Math.max(...words.map(w => w.x + w.width));
+  const maxY = Math.max(...words.map(w => w.y + w.height));
+
+  return [
+    Math.round(minX),
+    Math.round(minY),
+    Math.round(maxX - minX),
+    Math.round(maxY - minY),
+  ];
+}
+
+// END OF FILE: src/documents/ingestion.service.ts
+// ==========================================================================
+
+// FILE: src/documents/search.service.ts
+// --------------------------------------------------------------------------
+
+import { Injectable, Logger, InternalServerErrorException } from '@nestjs/common';
+import { createClient } from '@supabase/supabase-js';
+
+@Injectable()
+export class SearchService {
+  private readonly logger = new Logger(SearchService.name);
+  private supabase = createClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+  );
+  private ai: any;
+
+  async findRelevantSection(query: string, userId: string, documentId?: string) {
+    this.logger.log(`🔍 Searching: "${query}" | User: ${userId} | Doc: ${documentId ?? 'ALL'}`);
+
+    try {
+      if (!this.ai) {
+        const { GoogleGenAI } = await import('@google/genai');
+        this.ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! });
+      }
+
+      const embResult = await this.ai.models.embedContent({
+        model: 'gemini-embedding-001',
+        contents: query,
+      });
+
+      const values = embResult.embeddings?.[0]?.values;
+      if (!values) {
+        this.logger.error('❌ No embedding values returned from Gemini');
+        throw new InternalServerErrorException('Embedding generation failed');
+      }
+
+      this.logger.log(`✅ Embedding generated. Querying vector store...`);
+
+      let data: any[], error: any;
+
+      if (documentId) {
+        // ✅ Strict single-document search — most precise
+        ({ data, error } = await this.supabase.rpc('match_chunks_by_document', {
+          query_embedding: values,
+          match_threshold: 0.3,
+          match_count: 10,
+          filter_document_id: documentId,
+        }));
+      } else {
+        // Fallback: search all docs for this user
+        ({ data, error } = await this.supabase.rpc('match_document_chunks', {
+          query_embedding: values,
+          match_threshold: 0.3,
+          match_count: 10,
+          filter_user_id: userId,
+        }));
+      }
+
+      if (error) {
+        this.logger.error(`❌ RPC Error: ${error.message}`);
+        throw new InternalServerErrorException(error.message);
+      }
+
+      this.logger.log(`✅ Found ${data?.length ?? 0} spatial chunks.`);
+      return data ?? [];
+
+    } catch (e: any) {
+      this.logger.error(`💥 Search Failure: ${e.message}`);
+      throw new InternalServerErrorException(e.message);
+    }
+  }
+}
+
+// END OF FILE: src/documents/search.service.ts
+// ==========================================================================
+
+// FILE: src/main.ts
+// --------------------------------------------------------------------------
+
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.enableCors(); // Essential for your React frontend
+  await app.listen(process.env.PORT || 3001);
+  console.log(`GLYPH Server running on: ${await app.getUrl()}`);
+}
+bootstrap();
+
+
+// END OF FILE: src/main.ts
+// ==========================================================================
+
+// FILE: test/app.e2e-spec.ts
+// --------------------------------------------------------------------------
+
+import { Test, TestingModule } from '@nestjs/testing';
+import { INestApplication } from '@nestjs/common';
+import request from 'supertest';
+import { App } from 'supertest/types';
+import { AppModule } from './../src/app.module';
+
+describe('AppController (e2e)', () => {
+  let app: INestApplication<App>;
+
+  beforeEach(async () => {
+    const moduleFixture: TestingModule = await Test.createTestingModule({
+      imports: [AppModule],
+    }).compile();
+
+    app = moduleFixture.createNestApplication();
+    await app.init();
+  });
+
+  it('/ (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/')
+      .expect(200)
+      .expect('Hello World!');
+  });
+});
+
+
+// END OF FILE: test/app.e2e-spec.ts
+// ==========================================================================
+
+// FILE: test/jest-e2e.json
+// --------------------------------------------------------------------------
+
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": ".",
+  "testEnvironment": "node",
+  "testRegex": ".e2e-spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  }
+}
+
+
+// END OF FILE: test/jest-e2e.json
+// ==========================================================================
+
+// FILE: tsconfig.build.json
+// --------------------------------------------------------------------------
+
+{
+  "extends": "./tsconfig.json",
+  "exclude": ["node_modules", "test", "dist", "**/*spec.ts"]
+}
+
+
+// END OF FILE: tsconfig.build.json
+// ==========================================================================
+
+// FILE: tsconfig.json
+// --------------------------------------------------------------------------
+
+{
+  "compilerOptions": {
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "resolvePackageJsonExports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2023",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "noFallthroughCasesInSwitch": false,
+  }
+}
+
+
+// END OF FILE: tsconfig.json
+// ==========================================================================
+
