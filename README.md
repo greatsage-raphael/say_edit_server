@@ -1,6 +1,6 @@
-# GLYPH Server | The Neural Core
+# SAY_EDIT Server | The Neural Core
 
-> **The Spatial Intelligence Engine behind [GLYPH](https://github.com/your-repo/glyph-client)**
+> **The Spatial Intelligence Engine behind [SAY_EDIT](https://github.com/greatsage-raphael/say_edit)**
 >
 > *Handles PDF ingestion, sentence-level vector embedding, and spatial document search.*
 
